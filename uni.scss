@@ -1,0 +1,321 @@
+
+
+/* uni.scss */
+@import 'uview-ui/theme.scss';
+
+$padding-40: 40rpx;
+$padding-15: 15rpx;
+$padding-30: 30rpx;
+$padding-90: 90rpx;
+$padding-80: 80rpx;
+$padding-46: 46rpx;
+$margin-130: 130rpx;
+$margin-60:60rpx;
+
+$default-bg: #4157b5; // 默认页面背景色
+$bg-blue:#4157b5;
+$bg-red:#d0021b;
+$bg-white:#fff;
+
+$color-orange :#F47911;
+$color-white: #ffffff; // 白色字体
+$color-black:#000;  // 黑色
+$color-333:#333333; // 灰色
+
+$default-size:28rpx;  // 全局默认字体大小
+$font-90:90rpx;  // 标题
+$font-64:64rpx;  // 二级标题
+$font-26:26rpx;  // 表单文字
+$font-45:45rpx; // 三级标题
+$font-42:42rpx; // 四级标题
+/*********弹性布局兼容性处理*********/
+.flex {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.flex-item {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+/*flex-direction属性决定主轴的方向（即项目的排列方向）。*/
+.flex-direction-row-reverse {
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: reverse;
+	-ms-flex-direction: row-reverse;
+	flex-direction: row-reverse;
+}
+
+.flex-direction-column-reverse {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: reverse;
+	-ms-flex-direction: column-reverse;
+	flex-direction: column-reverse;
+}
+
+.flex-column {
+	-webkit-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+
+/*默认情况下，项目都排在一条线（又称"轴线"）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。*/
+.flex-wrap-nowrap {
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+}
+.flex-wrap {
+	-webkit-flex-wrap: wrap;
+	-webkit-box-lines: multiple;
+	-moz-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.flex-wrap-reverse {
+	-ms-flex-wrap: wrap-reverse;
+	flex-wrap: wrap-reverse;
+}
+
+/*justify-content属性定义了项目在主轴上的对齐方式。*/
+.justify-start {
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+}
+.justify-end {
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+}
+
+.justify-center {
+	-webkit-box-pack: center;
+	-moz-justify-content: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.justify-between {
+	-webkit-box-pack: space-between;
+	-moz-justify-content: space-between;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+
+.justify-around {
+	-webkit-box-pack: space-around;
+	-moz-justify-content: space-around;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+}
+
+.align-items {
+	-webkit-box-align: center;
+	-moz-align-items: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.align-end {
+	-webkit-box-align: end;
+	-ms-flex-align: end;
+	align-items: flex-end;
+}
+
+/* 浮动 */
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+/*伪元素是行内元素 正常浏览器清除浮动方法*/
+.clear-f:after {
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+// 红色背景-白色字体-大按钮
+.btn-Br-Cw {
+	width: 500rpx;
+	height: 100rpx;
+	color: #fff;
+	line-height: 100rpx;
+	text-align: center;
+	background: #d0021b;
+	font-size: 58rpx;
+	font-weight: 700;
+	border-radius: 50rpx;
+}
+
+.padding-lr-15{
+	padding-left: $padding-15;
+	padding-right: $padding-15;
+}
+
+.padding-tb-40{
+	padding-top: $padding-40;
+	padding-bottom: $padding-40;
+}
+
+.padding-lr-40{
+	padding-left: 40rpx;
+	padding-right: 40rpx;
+}
+
+.padding-t-40{
+	padding-top: $padding-40;
+}
+
+.padding-t-30{
+	padding-top: $padding-30;
+}
+
+.padding-lr-30{
+	padding-left: $padding-30;
+	padding-right: $padding-30;
+}
+.padding-tb-30{
+	padding-top: $padding-30;
+	padding-bottom: $padding-30;
+}
+.padding-lr-46{
+	padding-left: $padding-46;
+	padding-right: $padding-46;
+}
+
+.padding-t-90{
+	padding-top: $padding-90;
+}
+
+.padding-t-80{
+	padding-top: $padding-80;
+}
+
+.padding-b-80{
+	padding-bottom: $padding-80;
+}
+
+.padding-tb-80{
+	padding-top: $padding-80;
+	padding-bottom: $padding-80;
+}
+
+.margin-top-60{
+	margin-top: $margin-60;
+}
+
+
+.margin-top-130{
+	margin-top: $margin-130;
+}
+
+.margin-auto{
+	margin: 0 auto;
+}
+
+
+// 文字溢出隐藏
+.ellipsis-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.font-90{
+	font-size: $font-90;
+}
+.font-64{
+	font-size: $font-64;
+}
+.font-26{
+	font-size: $font-26;
+}
+.font-45{
+	font-size: $font-45;
+}
+.font-42{
+	font-size: $font-42;
+}
+
+.font-23{
+	font-size: 23rpx;
+}
+
+// 渐变样式
+.uni-shadow {
+	border-radius: 0 0 10rpx 10rpx;
+	box-shadow: 0rpx 6rpx 12rpx 0rpx rgba(0, 0, 0, 0.16);
+}
+
+/**************************/
+.hover-class {
+	opacity: 0.8;
+}
+.uni-input-placeholder {
+	color: rgb(192, 196, 204);
+}
+
+.border-radius {
+	border-radius: 10rpx;
+}
+
+.bg-default {
+	background-color: $default-bg !important;
+}
+
+.bg-blue {
+	background-color: $bg-blue !important;
+}
+
+.bg-white {
+	background-color: $bg-white !important;
+}
+
+.bg-red {
+	background-color: $bg-red !important;
+}
+
+.text-orange {
+	color: $color-orange !important;
+}
+.text-white {
+	color: $color-white !important;
+}
+.text-black {
+	color: $color-black !important;
+}
+.text-333 {
+	color: $color-333!important;
+}
+
+
+.w100{
+	width: 100%;
+}
+
+.font-bold{
+	font-weight: 700 !important;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.position-relative{
+	position: relative;
+}
