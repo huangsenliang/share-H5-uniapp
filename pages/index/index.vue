@@ -108,11 +108,6 @@
 				<image src="/static/elm.png" mode="widthFix"></image>
 				<image src="/static/meituan.png" mode="widthFix"></image>
 				<image src="/static/bskd.png" mode="widthFix"></image>
-				<image src="/static/bskd.png" mode="widthFix"></image>
-				<image src="/static/bskd.png" mode="widthFix"></image>
-				<image src="/static/bskd.png" mode="widthFix"></image>
-				<image src="/static/bskd.png" mode="widthFix"></image>
-				<image src="/static/bskd.png" mode="widthFix"></image>
 			</view>
 		</view>
 		<view class="content4 padding-t-130 padding-b-80">
@@ -242,13 +237,13 @@ export default {
 			},
 			actionSheetList: [
 				{
-					text: '男'
+					text: '行业一'
 				},
 				{
-					text: '女'
+					text: '行业二'
 				},
 				{
-					text: '保密'
+					text: '行业三'
 				}
 			]
 		};
