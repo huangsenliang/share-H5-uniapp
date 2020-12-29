@@ -59,7 +59,8 @@
     "mp-weixin" : {
         "appid" : "",
         "setting" : {
-            "urlCheck" : false
+            "urlCheck" : false,
+            "postcss" : true
         },
         "usingComponents" : true
     },
@@ -80,12 +81,13 @@
             "mode" : "history"
         },
         "template" : "index.html",
-        "title" : "零工云",
+        "title" : "【零工云】共建灵活用工场景平台",
         "devServer" : {
             "port" : 8080
         },
         "sdkConfigs" : {
             "maps" : {}
-        }
+        },
+        "domain" : "http://lgyun.com.cn/api"
     }
 }
