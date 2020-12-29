@@ -13,17 +13,17 @@
 		<view class="content2 bg-white padding-t-90 padding-lr-30">
 			<view class="flex justify-center font-64 font-bold">共建场景平台登记</view>
 			<view class="form-wrap margin-top-60">
-				<u-form :model="form" ref="uForm">
-					<u-form-item :border-bottom="false" label-position="top" label="姓名（已加密）"><u-input :border="true" v-model="form.name" /></u-form-item>
-					<u-form-item :border-bottom="false" label-position="top" label="电话（已加密）"><u-input :border="true" v-model="form.phone" /></u-form-item>
+				<u-form :model="form1" ref="uForm">
+					<u-form-item :border-bottom="false" label-position="top" label="姓名（已加密）"><u-input :border="true" v-model="form1.name" /></u-form-item>
+					<u-form-item :border-bottom="false" label-position="top" label="电话（已加密）"><u-input type="number" :border="true" v-model="form1.tel" /></u-form-item>
 					<u-form-item :border-bottom="false" label-position="top" label="所属行业">
-						<u-input :border="true" v-model="form.sex" type="select" @click="show = true" />
-						<u-action-sheet :list="actionSheetList" v-model="show" @click="actionSheetCallback"></u-action-sheet>
+						<u-input :border="true" v-model="form1.industry" type="select" @click="show1 = true" />
+						<u-action-sheet :list="actionSheetList" v-model="show1" @click="actionSheetCallback1"></u-action-sheet>
 					</u-form-item>
-					<u-form-item :border-bottom="false" label-position="top" label="我希望的方案"><u-input :border="true" v-model="form.plan" /></u-form-item>
+					<!-- <u-form-item :border-bottom="false" label-position="top" label="我希望的方案"><u-input :border="true" v-model="form1.content" /></u-form-item> -->
 				</u-form>
 			</view>
-			<view class="flex justify-center padding-tb-80"><view class="btn-Br-Cw">我要共建</view></view>
+			<view class="flex justify-center padding-tb-80" @click="submit('form1')"><view class="btn-Br-Cw">我要共建</view></view>
 		</view>
 		<view class="content3 padding-lr-46">
 			<view class="content3-1 padding-t-90">
@@ -120,9 +120,9 @@
 					<view class="text-orange">
 						<text class="round-small">方</text>
 						<text class="round-small">案</text>
-						<text v-if="index==0" class="round-small">一</text>
-						<text v-if="index==1" class="round-small">二</text>
-						<text v-if="index==2" class="round-small">三</text>
+						<text v-if="index == 0" class="round-small">一</text>
+						<text v-if="index == 1" class="round-small">二</text>
+						<text v-if="index == 2" class="round-small">三</text>
 					</view>
 					<text class="text-white font-50">{{ item.content }}</text>
 				</view>
@@ -131,27 +131,27 @@
 		<view class="content6 bg-white padding-t-90 padding-lr-30">
 			<view class="flex justify-center font-64 font-bold">共建场景平台登记</view>
 			<view class="form-wrap margin-top-60">
-				<u-form :model="form" ref="uForm">
-					<u-form-item :border-bottom="false" label-position="top" label="姓名（已加密）"><u-input :border="true" v-model="form.name" /></u-form-item>
-					<u-form-item :border-bottom="false" label-position="top" label="电话（已加密）"><u-input :border="true" v-model="form.phone" /></u-form-item>
+				<u-form :model="form2" ref="uForm">
+					<u-form-item :border-bottom="false" label-position="top" label="姓名（已加密）"><u-input :border="true" v-model="form2.name" /></u-form-item>
+					<u-form-item :border-bottom="false" label-position="top" label="电话（已加密）"><u-input :border="true" v-model="form2.tel" type="number" /></u-form-item>
 					<u-form-item :border-bottom="false" label-position="top" label="所属行业">
-						<u-input :border="true" v-model="form.sex" type="select" @click="show = true" />
-						<u-action-sheet :list="actionSheetList" v-model="show" @click="actionSheetCallback"></u-action-sheet>
+						<u-input :border="true" v-model="form2.industry" type="select" @click="show2 = true" />
+						<u-action-sheet :list="actionSheetList" v-model="show2" @click="actionSheetCallback2"></u-action-sheet>
 					</u-form-item>
-					<u-form-item :border-bottom="false" label-position="top" label="我希望的方案"><u-input :border="true" v-model="form.plan" /></u-form-item>
+					<!-- <u-form-item :border-bottom="false" label-position="top" label="我希望的方案"><u-input :border="true" v-model="form2.content" /></u-form-item> -->
 				</u-form>
 			</view>
-			<view class="flex justify-center padding-tb-80"><view class="btn-Br-Cw">我要共建</view></view>
+			<view class="flex justify-center padding-tb-80" @click="submit('form2')"><view class="btn-Br-Cw">我要共建</view></view>
 		</view>
 		<view class="content7 padding-lr-50 padding-t-130">
 			<view class="process-wrap">
 				<view class="header font-64 text-white">我们的优势</view>
 				<view class="process-list padding-t-80">
-					<view v-for="(item,index) of processList" :key="index" class="process-item position-relative padding-lr-30 padding-b-40">
+					<view v-for="(item, index) of processList" :key="index" class="process-item position-relative padding-lr-30 padding-b-40">
 						<text class="round"></text>
-						<view class="text-orange font-38">{{item.title}}</view>
-						<view class="text-white">{{item.content}}</view>
-						<view v-if="item.content" class="text-white">{{item.content2}}</view>
+						<view class="text-orange font-38">{{ item.title }}</view>
+						<view class="text-white">{{ item.content }}</view>
+						<view v-if="item.content" class="text-white">{{ item.content2 }}</view>
 					</view>
 				</view>
 			</view>
@@ -160,60 +160,64 @@
 			<view class="process-wrap">
 				<view class="header font-64 text-white">关于我们</view>
 				<view class="text-white font-32 padding-lr-30 margin-t-10 padding-tb-60">
-					零工云是一家融合财税和人力资源两大专业服务领域，集成运用互联网、大数据、
-					人工智能等新一代信息技术的科技型企业，专注于为灵活用工行业提供全方位的技术支持，
-					服务包含交易结算系统定制、行业应用场景开发、地方服务中台集成等，
-					赋能企业降本增效、优化和提升组织效率，
+					零工云是一家融合财税和人力资源两大专业服务领域，集成运用互联网、大数据、 人工智能等新一代信息技术的科技型企业，专注于为灵活用工行业提供全方位的技术支持，
+					服务包含交易结算系统定制、行业应用场景开发、地方服务中台集成等， 赋能企业降本增效、优化和提升组织效率，
 					增强企业核心竞争力，促进地方园区合规健康发展，更好的服务创业就业。
 				</view>
 			</view>
-			<view class="img-phone flex justify-center padding-t-90">
-				<image src="/static/phone.png" mode="widthFix" style="width: 332rpx;"></image>
-			</view>
+			<view class="img-phone flex justify-center padding-t-90"><image src="/static/phone.png" mode="widthFix" style="width: 332rpx;"></image></view>
 		</view>
+		<u-top-tips ref="uTips"></u-top-tips>
 	</view>
 </template>
 
 <script>
+import { informationAdd } from '@/api/index.js';
+import {toast} from "@/utils/utils.js"
+const notFound = {
+	name: '姓名不能为空！！',
+	tel: '电话不能为空！！',
+	industry: '所属行业不能为空！！'
+};
 export default {
 	data() {
 		return {
-			show: false,
-			processList:[
+			show1: false,
+			show2: false,
+			processList: [
 				{
-					title:"工程师托管外包",
-					content:"简化社保处理，优化了个人个税	"
+					title: '工程师托管外包',
+					content: '简化社保处理，优化了个人个税	'
 				},
 				{
-					title:"软著申请",
-					content:"软著申请"
+					title: '软著申请',
+					content: '软著申请'
 				},
 				{
-					title:"技术合同认定	",
-					content:"保障费用的研发费用属性，可以享受研发费加计扣除，扣除比例高达60%，减免15%所得税。"
+					title: '技术合同认定	',
+					content: '保障费用的研发费用属性，可以享受研发费加计扣除，扣除比例高达60%，减免15%所得税。'
 				},
 				{
-					title:"校企合作型服务外包产业园",
-					content:"更多优秀的计算机工程师"
+					title: '校企合作型服务外包产业园',
+					content: '更多优秀的计算机工程师'
 				},
 				{
-					title:"中小城市地域收入差异",
-					content:"人力成本投入更有优势"
+					title: '中小城市地域收入差异',
+					content: '人力成本投入更有优势'
 				},
 				{
-					title:"中小城市鼓励科技创新",
-					content:"中小城市鼓励科技创新"
+					title: '中小城市鼓励科技创新',
+					content: '中小城市鼓励科技创新'
 				},
 				{
-					title:"成熟的灵活用工结算系统",
-					content:"集成场景平台，更省时省钱"
+					title: '成熟的灵活用工结算系统',
+					content: '集成场景平台，更省时省钱'
 				},
 				{
-					title:"完善的项目管理支持",
-					content:"一对一技术总监项目辅导",
-					content2:"开发流程全透明化系统管理"
-				},
-				
+					title: '完善的项目管理支持',
+					content: '一对一技术总监项目辅导',
+					content2: '开发流程全透明化系统管理'
+				}
 			],
 			planList: [
 				{
@@ -229,21 +233,30 @@ export default {
 					content: '按平台用户数结算'
 				}
 			],
-			form: {
+			form1: {
 				name: '',
-				phone: '',
-				sex: '',
-				plan: ''
+				tel: '',
+				industry: ''
+				// content: ''
+			},
+			form2: {
+				name: '',
+				tel: '',
+				industry: ''
+				// content: ''
 			},
 			actionSheetList: [
 				{
-					text: '行业一'
+					text: '人力资源'
 				},
 				{
-					text: '行业二'
+					text: '产业园区'
 				},
 				{
-					text: '行业三'
+					text: '财税公司'
+				},
+				{
+					text: '其他'
 				}
 			]
 		};
@@ -251,8 +264,50 @@ export default {
 	onLoad() {},
 	methods: {
 		// 点击actionSheet回调
-		actionSheetCallback(index) {
-			this.form.sex = this.actionSheetList[index].text;
+		actionSheetCallback1(index) {
+			this.form1.industry = this.actionSheetList[index].text;
+		},
+		actionSheetCallback2(index) {
+			this.form2.industry = this.actionSheetList[index].text;
+		},
+		isNotFound(form) {
+			let arr = Object.keys(this[form]);
+			for (let key of arr) {
+				if (!this[form][key]) {
+					toast({
+						el:this.$refs.uTips,
+						title:notFound[key],
+						type:"error"
+					})
+					return false;
+				}
+			}
+			return true
+		},
+		submit(form) {
+			// 非空验证
+			if (!this.isNotFound(form)) {
+				return;
+			}
+			// 电话验证
+			if(this[form].tel.length !== 11){
+				toast({
+					el:this.$refs.uTips,
+					title:'电话号码输入有误！！',
+					type:"error"
+				})
+				return
+			}
+			let data = this[form];
+			informationAdd(data).then(res => {
+				Object.keys(this[form]).forEach(key=>{
+					this[form][key] = ""
+				})
+				toast({
+					el:this.$refs.uTips,
+					title:res.msg,
+				})
+			});
 		}
 	}
 };
@@ -260,12 +315,11 @@ export default {
 
 <style lang="scss">
 // start 页面共有样式
-.process-item{
+.process-item {
 	line-height: 50rpx;
 }
 
-
-.round-small{
+.round-small {
 	display: inline-block;
 	width: 50rpx;
 	height: 50rpx;
@@ -276,9 +330,9 @@ export default {
 	color: #f47911;
 	margin-right: 10rpx;
 	border-radius: 50%;
-	background-color: rgba(0,0,0,.2);
+	background-color: rgba(0, 0, 0, 0.2);
 }
-.round{
+.round {
 	position: absolute;
 	top: 15rpx;
 	left: 0;
@@ -343,9 +397,9 @@ export default {
 	padding-bottom: 40rpx;
 }
 
-.padding-tb-60{
+.padding-tb-60 {
 	padding-bottom: 60rpx;
-	padding-top:60rpx;
+	padding-top: 60rpx;
 }
 
 .margin-t-10 {
@@ -385,29 +439,30 @@ export default {
 			}
 		}
 	}
-	.content7 .process-wrap{
+	.content7 .process-wrap {
 		width: 648rpx;
 		background-image: url(../../static/process1.png);
 		background-size: 100% 100%;
 	}
-	
-	.content8 .process-wrap{
+
+	.content8 .process-wrap {
 		width: 648rpx;
 		background-image: url(../../static/process2.png);
 		background-size: 100% 100%;
 	}
-		
-	.content7,.content8 {
+
+	.content7,
+	.content8 {
 		.process-wrap {
 			position: relative;
 			width: 648rpx;
-			.header{
+			.header {
 				width: 100%;
 				text-align: center;
 				position: absolute;
 				left: 50%;
 				top: 0rpx;
-				transform: translate(-50%,-50%);
+				transform: translate(-50%, -50%);
 			}
 		}
 	}

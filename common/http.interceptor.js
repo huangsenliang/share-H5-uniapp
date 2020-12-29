@@ -1,14 +1,15 @@
 import Request from '@/common/luch-request/index.js'
-import store from '@/store/index.js'
+// import store from '@/store/index.js'
 
 const http = new Request();
 
 
 http.setConfig((config) => { /* 设置全局配置 */
-	config.baseURL = process.env.VUE_APP_BASE_API
+	config.baseURL = process.env.VUE_H5_BASE_API
 	config.header = {
 		...config.header,
-		'content-type': 'application/json;charset=UTF-8'
+		'content-type': 'application/json;charset=UTF-8',
+		appkey:"lgy_2020_ax12dzd"
 	}
 	return config
 })
@@ -16,10 +17,10 @@ http.setConfig((config) => { /* 设置全局配置 */
 
 http.interceptors.request.use((config) => {
 	// 引用token
-	config.header.Authorization = 'Basic c3dvcmQ6c3dvcmRfc2VjcmV0';
-	if (store.state.vuex_token) {
-		config.header['diyi-auth'] = 'Bearer ' + store.state.vuex_token;
-	}
+	// config.header.Authorization = 'Basic c3dvcmQ6c3dvcmRfc2VjcmV0';
+	// if (store.state.vuex_token) {
+	// 	config.header['diyi-auth'] = 'Bearer ' + store.state.vuex_token;
+	// }
 
 	return config;
 }, (config) => {
