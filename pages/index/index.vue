@@ -163,7 +163,7 @@
 		</view>
 		<view class="content8 padding-lr-50 padding-tb-80">
 			<view class="process-wrap">
-				<view class="header font-64 text-white">我们的优势</view>
+				<view class="header font-64 text-white">关于我们</view>
 				<view class="text-white font-32 padding-lr-30 margin-t-10 padding-tb-60">
 					零工云是一家融合财税和人力资源两大专业服务领域，集成运用互联网、大数据、
 					人工智能等新一代信息技术的科技型企业，专注于为灵活用工行业提供全方位的技术支持，
